@@ -7,7 +7,15 @@
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 
+from ...models import PerliminaryData
 
-class SpidersPipeline:
+class PermilinaryDataPipeline:
     def process_item(self, item, spider):
-        return item
+        adapter = ItemAdapter(item)
+        entries = PerliminaryData.objects.all()
+        if(len(entries)==0):
+            entry = PerliminaryData(data=adapter["data"])
+            entry.save()
+        else:
+            entries[0].data = adapter["data"]
+            entries[0].save()
