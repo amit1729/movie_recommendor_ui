@@ -13,3 +13,10 @@ class SpidersItem(scrapy.Item):
 
 class gclData(scrapy.Item):
     data = scrapy.Field()
+
+class Movie(scrapy.Item):
+    name = scrapy.Field()
+    release_date = scrapy.Field()
+    grating = scrapy.Field()
+    glikes = scrapy.Field()
+    selected = scrapy.Field()
