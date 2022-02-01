@@ -1,5 +1,4 @@
 import scrapy
-import json
 from scrapy.utils.response import open_in_browser
 from ..items import gclData
 from ..pipelines import PermilinaryDataPipeline
@@ -11,7 +10,7 @@ class preliminarySpider(scrapy.Spider):
     ]
 
 
-    def __init__(self):
+    def __init__(self,**kwargs):
         self.pipeline = PermilinaryDataPipeline()
 
     def parse(self, response):
@@ -42,7 +41,6 @@ class preliminarySpider(scrapy.Spider):
         cats = []
         for c in cat1:
             cats.append(c.strip())
-        cats.sort()
         data['language_values'] = cats
         #category_Values
         cat1 = response.xpath('//input[@name = "title_type"]/@value').extract()
