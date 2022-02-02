@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ow=td&2gx1=32^d&tw!ccb&f%1^x5$og+0y^8^j)i#k6tfub_s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 CORS_ORIGIN_ALLOW_ALL=True
 # Application definition
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'api.apps.ApiConfig',
     'rest_framework',
+    'channels',
+    'moviesocket',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +74,8 @@ TEMPLATES = [
         },
     },
 ]
+
+ASGI_APPLICATION = 'movie_recommendor.asgi.application'
 
 WSGI_APPLICATION = 'movie_recommendor.wsgi.application'
 

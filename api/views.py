@@ -15,7 +15,7 @@ class GetPreliminaryData(APIView):
   def get(self, request, format = None):
     crawlSetup()
     entries = PerliminaryData.objects.all()
-    print(len(entries))
+    #print(len(entries))
     if(len(entries)<=0):
       return Response({"Response":"Something Gone Wrong"},status=status.HTTP_204_NO_CONTENT)
     else:
