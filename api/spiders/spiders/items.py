@@ -15,8 +15,9 @@ class gclData(scrapy.Item):
     data = scrapy.Field()
 
 class Movie(scrapy.Item):
+    movie_id = scrapy.Field()
     name = scrapy.Field()
+    imdbLikes = scrapy.Field()
+    img_url = scrapy.Field()
     release_date = scrapy.Field()
-    grating = scrapy.Field()
     glikes = scrapy.Field()
-    selected = scrapy.Field()

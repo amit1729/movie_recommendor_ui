@@ -6,8 +6,8 @@ from rest_framework import generics, serializers, status
 from rest_framework.request import Request
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .crawlers import crawlSetup
-from .models import PerliminaryData
+from .crawlers import crawlSetup, crawlMovies
+from .models import PerliminaryData, MovieDatabase
 from itertools import combinations
 
 # Create your views here.
@@ -73,5 +73,9 @@ class FormSubmit(APIView):
         for i in range(len(gen)):
           url1+=(data["genres_values"][gen[i]]+",")
         urls.append(url1)
-      
+      print(urls)
+      print(request.data)
+      #query = query = MovieDatabase.objects.all()
+      #print(query)
+      crawlMovies(urls=urls,movieLimit=request.data['maxIMDbSearches'],gLikes=request.data['minRTA'])
     return Response(request.data,status=status.HTTP_200_OK)

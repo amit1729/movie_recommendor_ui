@@ -11,8 +11,10 @@ class preliminarySpider(scrapy.Spider):
 
 
     def __init__(self,**kwargs):
+        print("Running  spider...")
         self.pipeline = PermilinaryDataPipeline()
 
+ 
     def parse(self, response):
         genres1 = response.xpath('//input[@name = "genres"]/..//label/text()').extract()
         genres = []

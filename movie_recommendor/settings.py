@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'api.apps.ApiConfig',
     'rest_framework',
-    'channels',
-    'moviesocket',
+    #'channels',
+    #'moviesocket',
 ]
 
 MIDDLEWARE = [
@@ -75,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-ASGI_APPLICATION = 'movie_recommendor.asgi.application'
+#ASGI_APPLICATION = 'movie_recommendor.asgi.application'
 
 WSGI_APPLICATION = 'movie_recommendor.wsgi.application'
 
